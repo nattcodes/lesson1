@@ -11,5 +11,6 @@ console.log(isObj({name: 'Dave'}))
 console.log(isObj(null))
 
 const isTrue = <T>(arg: T): {arg: T, is:boolean} => {
+    if (Array.isArray(arg) && !arg.le)
     return {arg, is: !!arg}
 }
