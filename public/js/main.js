@@ -1,13 +1,9 @@
 "use strict";
-const echo = (arg) => arg;
-const isObj = (arg) => {
-    return (typeof arg === 'object' && !Array.isArray(arg) && arg !== null);
+// const echo = <T>(arg: T): T => arg
+const processUser = (user) => {
+    return user;
 };
-console.log(isObj(true));
-console.log(isObj('john'));
-console.log(isObj([1, 2, 3]));
-console.log(isObj({ name: 'Dave' }));
-console.log(isObj(null));
-const isTrue = (arg) => {
-    return { arg, is: !!arg };
+console.log(processUser({ id: 1, name: 'dave' }));
+const getUsersProperty = (users, key) => {
+    return users.map(user => user[key]);
 };
