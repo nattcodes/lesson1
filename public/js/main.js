@@ -1,9 +1,12 @@
 "use strict";
-// const echo = <T>(arg: T): T => arg
-const processUser = (user) => {
-    return user;
+//Partial
+const updateAssignment = (assign, propsToUpdate) => {
+    return Object.assign(Object.assign({}, assign), propsToUpdate);
 };
-console.log(processUser({ id: 1, name: 'dave' }));
-const getUsersProperty = (users, key) => {
-    return users.map(user => user[key]);
+const assign1 = {
+    studentId: "nattcode1234",
+    title: "Project",
+    grade: 1
 };
+console.log(updateAssignment(assign1, { grade: 95 }));
+const assignGraded = updateAssignment(assign1, { grade: 95 });

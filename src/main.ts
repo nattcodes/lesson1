@@ -1,29 +1,22 @@
-// const echo = <T>(arg: T): T => arg
+//Partial
 
-// const isObj = <T>(arg: T): boolean => {
-//     return (typeof arg === 'object' && !Array.isArray(arg) && arg !== null)
-// }
 
-// console.log(isObj(true))
-// console.log(isObj('john'))
-// console.log(isObj([1, 2, 3]))
-// console.log(isObj({name: 'Dave'}))
-// console.log(isObj(null))
-
-// const isTrue = <T>(arg: T): {arg: T, is:boolean} => {
-//     if (Array.isArray(arg) && !arg.le)
-//     return {arg, is: !!arg}
-// }
-
-interface HasID {
-    id: number
+type Assignment = {
+    studentId: string,
+    title: string,
+    grade: number,
+    verified?: boolean
 }
 
-const processUser = <T extends HasID>(user: T): T => {
-    return user
+const updateAssignment = (assign: Assignment, propsToUpdate: Partial<Assignment>): Assignment => {
+    return {...assign, ...propsToUpdate}
 }
-console.log(processUser({id: 1, name: 'dave'}))
 
-const getUsersProperty = <T extends HasID, K extends keyof T>(users: T[], key: K): T[K][] =>{
-    return users.map(user => user[key])
+const assign1: Assignment = {
+    studentId: "nattcode1234",
+    title: "Project",
+    grade: 1
 }
+
+console.log(updateAssignment(assign1, {grade:95}))
+const assignGraded: Assignment = updateAssignment(assign1, {grade: 95})
